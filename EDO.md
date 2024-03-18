@@ -53,7 +53,7 @@ Finally, start the attack! Once the attack is complete, I would re-order it by r
     The only record returned is your own (Guest)
 
 Below is an example `User` object in which the response length indicates a leak:
-example_user.PNG
+![Cloud-Based CRM](leak.png)
 
 Certain fields in the ‘User’ object will contain null, as they were either not supplied or have additional restrictions as a result of a Salesforce security update as mentioned before. But PII is nearly always available through the ‘Name’, ‘FirstName’, ‘LastName’ fields and occasionally ‘Phone’. In addition to this, some custom fields may be disclosed. Prior to reporting this issue, it’s paramount to ensure this information is not already accessible publicly. If the community has a discussion board where users can post from profiles, this information is likely already accessible. So ensure that throughout the exploitation process, you are not reporting a ‘non issue’. 
 
