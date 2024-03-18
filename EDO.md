@@ -1,10 +1,12 @@
- Extract Data from Objects
+# Extract Data from Objects
 
-Note: From this point onwards we will be using Intruder quite a bit. Each ‘message’ payload will contain a MARKER value which is what you should surround the Intruder markers with, to save myself repeating it every time.
+Note: From this point onwards we will be using Intruder quite a bit. Each `message` payload will contain a MARKER value which is what you should surround the Intruder markers with, to save myself repeating it every time.
 
-Send this repeater request to the intruder. Within the ‘Positions’ tab, modify the ‘message’ parameter value to the following:
+Send this repeater request to the intruder. Within the ‘Positions’ tab, modify the `message` parameter value to the following:
 
 {"actions":[{"id":"123;a","descriptor":"serviceComponent://ui.force.components.controllers.lists.selectableListDataProvider.SelectableListDataProviderController/ACTION$getItems","callingDescriptor":"UNKNOWN","params":{"entityNameOrId":"MARKER","layoutType":"FULL","pageSize":100,"currentPage":0,"useTimeout":false,"getCount":false,"enableRowActions":false}}]}
+## it can be found at extract.txt file aswell
+
 
 The `$getItems` method in this specific controller is only one example of a built-in method that can be used to extract total information from an object, there are plenty however this is the one I typically use. In this payload I’m using pretty much the minimum required parameters for it to work. The full definition for this method and others will be provided at the end of the article. Here’s a little overview of the important parameters:
 
