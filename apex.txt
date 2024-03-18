@@ -1,0 +1,39 @@
+entDefs":[
+{"xs":"G","descriptor":"markup://c:SampleComponent"
+..snip..
+"cd":{
+      "descriptor":"compound://c.SampleComponent",
+      "ac":[
+        { 
+           "n":"getBaseUrl",
+           "descriptor":"apex://SampleController/ACTION$getBaseUrl","at":"SERVER","rt":"apex://Map<String,String>",
+           "pa":[{"name":"url","type":"apex://String"}]
+
+The important values to note here are:
+
+    The initial ‘discriptor’ value that exists in ‘componentDefs’ - This can be used for retrieving the full definition, although not required. The descriptor format is made up of namespace:component.
+
+    rt - The return value type. In this case, it’s a Map.
+
+    pa - Parameters that are passed to the apex class method, and their type. Here the parameter accepted is “url” of type “String”.
+
+Knowing this information, we can attempt to interact with this method and see what it returns. Here’s the constructed message value:
+
+{"actions":[{"id":"46;a","descriptor":"apex://NovaBaseController/ACTION$getBaseUrl","callingDescriptor":"UNKNOWN","params":{"url":"https://google.com/something"}}]}
+
+Let’s break this down into points:
+
+    id - Completely irrelevant, enter 1337 here if it makes you feel better
+
+    descriptor - The controller and subsequent method we are calling
+
+    callingDescriptor - Okay, so technically in an ideal world this would contain the componentDef markup string, but I have not seen it ever required so “UNKNOWN” is accepted across the board
+
+    params - This JSON object contains the ‘url’ parameter and value that I’ve decided to give it, which is a URL. I simply looked at the parameter name and took a wild guess, welcome to hacking :)
+
+Submitting the request returned the following value:
+
+"returnValue":{
+     "completeUrl":"https://google.com/something",
+     "pathUrl":"/something"
+     }
